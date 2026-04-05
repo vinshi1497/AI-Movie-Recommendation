@@ -82,5 +82,5 @@ http://localhost:8501
 
 ## 👨‍💻 Authors
 
-Shruti Mandlik
+Shruti Mandlik & 
 Vinshi Manwatkar
