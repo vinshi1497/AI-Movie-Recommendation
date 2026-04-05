@@ -75,7 +75,7 @@ st.markdown("""
     }
     div[data-baseweb="select"] > div:hover {
         border-color: #ff416c;
-        box-shadow: 0 0 15px rgba(255, 65, 108, 0.3);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
     
     /* Striking Button with Click Animation */
@@ -177,6 +177,7 @@ st.markdown("""
 
 st.markdown('<h1>🍿 CineMatch AI</h1>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Discover your next favorite movie</p>', unsafe_allow_html=True)
+st.markdown("<div style='max-width: 900px; margin: auto;'>", unsafe_allow_html=True)
 
 @st.cache_data
 def fetch_poster_url(movie_id, title):
@@ -323,13 +324,19 @@ def ucs_recommendation(start_node, limit=12):
 
 # UI layout
 # Moving the button right below the search bar for a professional centralized look
-selected_movie = st.selectbox("Select a Movie you like:", movie_names[:2000])
+st.markdown("### 🎬 Choose a movie")
 
-st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+col1, col2 = st.columns([3,1])
 
-find_button = st.button("Find Recommendations 🚀", use_container_width=True)
+with col1:
+    selected_movie = st.selectbox("", movie_names[:2000])
+
+with col2:
+    st.markdown("<br>", unsafe_allow_html=True)
+    find_button = st.button("Recommend 🚀", use_container_width=True)
 
 if find_button:
+    st.markdown("<br><br>", unsafe_allow_html=True)
     selected_movie_data = movies_dict[selected_movie]
     sel_genres = ", ".join(selected_movie_data['genres'])
 
@@ -340,7 +347,7 @@ if find_button:
     if not recs:
         st.warning("No connections found for this movie. Try another one!")
     else:
-        st.markdown(f"## ✨ Recommendations for **{selected_movie}**")
+        st.markdown(f"### 🎯 Recommendations for *{selected_movie}*")
         
         # Display engaging genres and messages
         if sel_genres:
@@ -368,3 +375,4 @@ if find_button:
                         <div class="movie-genres">{", ".join(m_data['genres'][:3])}</div>
                     </div>
                 ''', unsafe_allow_html=True)
+st.markdown("</div>", unsafe_allow_html=True)
