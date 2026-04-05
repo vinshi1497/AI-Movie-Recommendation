@@ -196,7 +196,7 @@ def fetch_poster_url(movie_id, title):
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('data/movies.csv').head(1000)
+    df = pd.read_csv('data/movies.csv').head(500)
     movies_data = []
 
     for index, row in df.iterrows():
