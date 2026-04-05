@@ -18,6 +18,10 @@ st.markdown("""
         font-family: 'Outfit', sans-serif;
     }
 
+    body, .stApp {
+    color: #1e293b !important;
+    }
+
     /* Attractive Pastel Combo - Soft Periwinkle to Silver */
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(135deg, #e4efe9 0%, #93a5ce 100%);
@@ -64,20 +68,27 @@ st.markdown("""
     
     /* Input Overrides */
     div[data-baseweb="select"] > div {
-        background-color: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 65, 108, 0.3);
-        border-radius: 12px;
-        padding: 5px;
-        font-size: 1.15rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    color: #1e293b !important;   /* DARK TEXT */
+    border: 2px solid rgba(255, 65, 108, 0.3);
+    border-radius: 12px;
+    padding: 5px;
+    font-size: 1.15rem;
     }
+    
+    div[data-baseweb="select"] span {
+    color: #1e293b !important;
+    }
+    
+    div[data-baseweb="select"] input {
+    color: #1e293b !important;
+    }
+    
     div[data-baseweb="select"] > div:hover {
         border-color: #ff416c;
         box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
-    
+
     /* Striking Button with Click Animation */
     @keyframes clickPulse {
         0% { box-shadow: 0 0 0 0 rgba(255, 75, 43, 0.7); }
