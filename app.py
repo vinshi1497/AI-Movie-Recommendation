@@ -335,16 +335,12 @@ def ucs_recommendation(start_node, limit=12):
 
 # UI layout
 # Moving the button right below the search bar for a professional centralized look
-st.markdown("### 🎬 Choose a movie")
+st.markdown("### 🎬 Select a Movie You Like")
+selected_movie = st.selectbox("", movie_names[:2000])
 
-col1, col2 = st.columns([3,1])
+st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
 
-with col1:
-    selected_movie = st.selectbox("", movie_names[:2000])
-
-with col2:
-    st.markdown("<br>", unsafe_allow_html=True)
-    find_button = st.button("Recommend 🚀", use_container_width=True)
+find_button = st.button("Find Recommendations 🚀", use_container_width=True)
 
 if find_button:
     st.markdown("<br><br>", unsafe_allow_html=True)
